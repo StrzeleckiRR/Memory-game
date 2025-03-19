@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'  // Użyj najnowszej wersji pluginu
+}
+
+group = 'Memory'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+javafx {
+    version = "19"  // Użyj odpowiedniej wersji JavaFX
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media']  // Dodaj moduły
+}
+
+application {
+    mainClass = 'Memory'  // Pełna nazwa klasy głównej (z pakietem)
+}
+
+test {
+    useJUnitPlatform()
+}
