@@ -48,9 +48,7 @@ public class Memory extends Application {
         setupUI(stage);        // Konfiguracja interfejsu użytkownika
     }
 
-    /**
-     * Inicjalizuje mapowanie słów angielskich na polskie.
-     */
+    //Inicjalizuje mapowanie słów angielskich na polskie.
     private void initializeWordPairs() {
         wordPairs = new HashMap<>();
         wordPairs.put("Both", "Obaj, obie");
@@ -68,9 +66,7 @@ public class Memory extends Application {
         wordPairs.put("Write", "Pisać");
     }
 
-    /**
-     * Konfiguruje interfejs użytkownika.
-     */
+    //Konfiguruje interfejs użytkownika.
     private void setupUI(Stage stage) {
         // Tworzenie siatki z przyciskami
         GridPane gridPaneButtons = createButtonGrid();
@@ -101,9 +97,7 @@ public class Memory extends Application {
         stage.show();
     }
 
-    /**
-     * Tworzy pasek menu.
-     */
+    //Tworzy pasek menu.
     private MenuBar createMenuBar(Stage stage, GridPane gridPaneButtons) {
         Menu startMenu = new Menu("Start");
         MenuItem newGame = new MenuItem("Nowa gra");
@@ -124,9 +118,7 @@ public class Memory extends Application {
         return menuBar;
     }
 
-    /**
-     * Tworzy siatkę z przyciskami.
-     */
+    //Tworzy siatkę z przyciskami.
     private GridPane createButtonGrid() {
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
@@ -159,9 +151,7 @@ public class Memory extends Application {
         return gridPane;
     }
 
-    /**
-     * Tworzy panel informacyjny.
-     */
+    //Tworzy panel informacyjny.
     private GridPane createInfoPanel() {
         GridPane infoGridPane = new GridPane();
         infoGridPane.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -178,9 +168,7 @@ public class Memory extends Application {
         return infoGridPane;
     }
 
-    /**
-     * Obsługuje kliknięcie przycisku.
-     */
+    //Obsługuje kliknięcie przycisku.
     private void handleButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
 
@@ -194,9 +182,7 @@ public class Memory extends Application {
         }
     }
 
-    /**
-     * Sprawdza, czy wybrana para jest poprawna.
-     */
+    //Sprawdza, czy wybrana para jest poprawna.
     private void checkPair() {
         String text1 = selectedButtons[0].getText();
         String text2 = selectedButtons[1].getText();
@@ -240,9 +226,7 @@ public class Memory extends Application {
         }
     }
 
-    /**
-     * Resetuje stan gry.
-     */
+    //Resetuje stan gry.
     private void resetGame(GridPane gridPaneButtons) {
         selectedButtons[0] = null;
         selectedButtons[1] = null;
@@ -286,16 +270,12 @@ public class Memory extends Application {
 
     }
 
-    /**
-     * Aktualizuje etykietę z liczbą prób.
-     */
+    //Aktualizuje etykietę z liczbą prób.
     private void updateInfoHealth() {
         infoHealth.setText("Ilość prób : " + healthTries);
     }
 
-    /**
-     * Wyświetla okno pomocy.
-     */
+    //Wyświetla okno pomocy.
     private void showHelpWindow() {
         Stage helpStage = new Stage();
         helpStage.initModality(Modality.APPLICATION_MODAL);
@@ -317,9 +297,7 @@ public class Memory extends Application {
         helpStage.show();
     }
 
-    /**
-     * Wyświetla modalne okno z komunikatem.
-     */
+    //Wyświetla modalne okno z komunikatem.
     private void showModalWindow(String title, String message) {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -340,9 +318,7 @@ public class Memory extends Application {
         stage.show();
     }
 
-    /**
-     * Tworzy przycisk z obsługą zdarzeń.
-     */
+    //Tworzy przycisk z obsługą zdarzeń.
     private Button createButton(String text, EventHandler<ActionEvent> handler) {
         Button button = new Button(text);
         button.setOnAction(handler);
@@ -350,9 +326,7 @@ public class Memory extends Application {
         return button;
     }
 
-    /**
-     * Obsługa dzwięków.
-     */
+    //Obsługa dzwięków.
 
     private MediaPlayer createMediaPlayer(String soundFileName) {
         String soundFile = Objects.requireNonNull(getClass().getResource(soundFileName)).toString();
@@ -361,9 +335,9 @@ public class Memory extends Application {
         return new MediaPlayer(media);
     }
 
-    /**
-     * Obsługa dzwięków Correct/Incorrect.
-     */
+
+      //Obsługa dzwięków Correct/Incorrect.
+
 
     private void soundsAnswers(boolean isCorrect) {
         if (isCorrect) {
